@@ -107,14 +107,21 @@ def main():
 
 def manual_add(songs_not_added):
     score = 1
+    print("if at any point you would like to stop type \"exit\"")
     for i in songs_not_added:
         print(f"{score}) {i}")
-        artist = input("artist name\n>>> ")
-        track = input("song name\n>>> ")
-        title = i
-        spotify_search(track, artist, title)
-        score += 1
-
+        artist = input("artist name\n>>> ").lower()
+        if artist == "exit":
+            break
+        else:
+            track = input("song name\n>>> ").lower()
+            if artist == "exit" or track == "exit":
+                break
+            else:
+                title = i
+                spotify_search(track, artist, title)
+                score += 1
+    main()
 
 def stats(songs_added, songs_not_added):
     choice = input("What would you like to do:\n    1) Go to main menu\n    2) View songs Not added"
