@@ -105,6 +105,16 @@ def main():
             print("Try again")
 
 
+def manual_add(songs_not_added):
+    score = 1
+    for i in songs_not_added:
+        print(f"{score}) {i}")
+        artist = input("artist name\n>>> ")
+        track = input("song name\n>>> ")
+        title = i
+        spotify_search(track, artist, title)
+        score += 1
+
 
 def stats(songs_added, songs_not_added):
     choice = input("What would you like to do:\n    1) Go to main menu\n    2) View songs Not added"
@@ -115,7 +125,14 @@ def stats(songs_added, songs_not_added):
         print('Songs NOT added:')
         for i in songs_not_added:
             print(f'    > {i}')
-        stats(songs_added, songs_not_added)
+        inp = input("Would you like to add the songs not added manually? (y/n)\n>>> ").lower()
+        if inp == "y":
+            manual_add(songs_not_added)
+        elif inp == "n":
+            stats(songs_added, songs_not_added)
+        else:
+            print("Not understood taking back to the main menu")
+            stats(songs_added, songs_not_added)
     elif choice == '3':
         print('Songs added:')
         for i in songs_added:
@@ -129,7 +146,7 @@ def stats(songs_added, songs_not_added):
 
 
 if __name__ == '__main__':
-    spotify_api = 'BQCv6qM7zByRTIxhxb3D7-RpZ21d0ZsQdrfCC2nH7lN15ePFD55FC4BOqsvn4rc3bvh7L0ZOWoj3S93QKu1HdyYOp0f7NqouOrBhNWtmnW1DQ4jDNpT14QFNEfcxzKa_AEoVER-emyhCPfAdO6rfeJbIqAnB1FHt6U4kbr3mSjxl-0-DAdtXKUgBtSJPe7QkCNYizeYOsE2XaNdTbUpIpa3XDZoajV6fOrw05EejdwNTci3bdTGhwi6JjrCl'
+    spotify_api = 'BQAAcOY86Br7Q3KK8Vlcf2fo9BBRj6PXlkln9E-SEv1uSBbLHXyeZKvn5xZXbrSbghDPTNiTYFdtkEdA1t_LD6UsB3V0Y3TS5IaSmMJKSJh4OOXYGuQ3EqZCYldGWkiPpJp2wdfGAtdRoMvgdnieB8nQy50RuV0uubBh0T5oxK528FmZMvGKb7wh8Y1bNy7KPV48prflHmBABSJ2ZHsdaeGRLI-AGxZ-QmelLXCJ0RTemWqU7oHkyuNPK0YR'
     youtube_api = 'AIzaSyC-61NQN3MNKB8LK1MLc4go-VI-2o_eeGg'
     youtube = build('youtube', 'v3', developerKey=youtube_api)
     main()
