@@ -146,7 +146,7 @@ def stats(songs_added, songs_not_added):
 
 
 if __name__ == '__main__':
-    spotify_api = 'BQAAcOY86Br7Q3KK8Vlcf2fo9BBRj6PXlkln9E-SEv1uSBbLHXyeZKvn5xZXbrSbghDPTNiTYFdtkEdA1t_LD6UsB3V0Y3TS5IaSmMJKSJh4OOXYGuQ3EqZCYldGWkiPpJp2wdfGAtdRoMvgdnieB8nQy50RuV0uubBh0T5oxK528FmZMvGKb7wh8Y1bNy7KPV48prflHmBABSJ2ZHsdaeGRLI-AGxZ-QmelLXCJ0RTemWqU7oHkyuNPK0YR'
-    youtube_api = 'AIzaSyC-61NQN3MNKB8LK1MLc4go-VI-2o_eeGg'
+    spotify_api = ''
+    youtube_api = ''
     youtube = build('youtube', 'v3', developerKey=youtube_api)
     main()
